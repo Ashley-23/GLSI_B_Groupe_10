@@ -17,7 +17,6 @@ public class ProduitService {
     public void saveProduit(Produit produit){
         //Fait l'ajout et la modification du produit
 
-
         produitRepository.save(produit);
     }
 

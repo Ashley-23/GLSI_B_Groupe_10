@@ -37,16 +37,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
                     <div class="content">
                         <div class="container-fluid">
                             <div class="row">
@@ -55,7 +45,34 @@
                                         <div class="card-header ">
                                             <h4 class="card-title">Produits</h4>
                                             <p class="card-category">Liste des produits</p>
+<!--
+                                                <div class="row gutters-8">
+                                                    <div class="col-3-xxxl col-xl-3 col-lg-3 col-12 form-group">
+                                                        <input type="text" placeholder="Rechercher par produits ..." class="form-control">
+                                                    </div>
+
+                                                   //
+                                                            <div class="col-4-xxxl col-xl-4 col-lg-3 col-12 form-group">
+                                                                <input type="text" placeholder="Search by Name ..." class="form-control">
+                                                            </div>
+                                                            <div class="col-4-xxxl col-xl-3 col-lg-3 col-12 form-group">
+                                                                <input type="text" placeholder="Search by Phone ..." class="form-control">
+                                                            </div>
+                                                        
+                                                //
+                                                    <div class="col-1-xxxl col-xl-2 col-lg-3 col-12 form-group">
+                                                        <button type="submit" class="fw-btn-fill btn-gradient-yellow">SEARCH</button>
+                                                    </div>
+                                                
+                                                
+                                                </div>
+                                            -->                                 
+
                                         </div>
+
+
+                                       
+
                                         <div class="card-body table-full-width table-responsive">
                                             <table class="table table-hover table-striped">
                                                 <thead>
@@ -66,18 +83,18 @@
                                                 <th>Quantité seuil</th>
                                                 <th>Date de création</th>
                                                 </thead>
+                                               
+                                               
+                                               
                                                 <tbody>
 
-
-
-
-                                                <tr th:each="produit : ${allproduit}">
+                                                <tr th:each="produit : ${allProduit}">
                                                     <td th:text="${produit.id}" ></td>
                                                     <td th:text="${produit.libelle}"></td>
-                                                    <td th:text="${produit.qte_Stock}"></td>
-                                                    <td th:text="${produit.qte_Seuil}"></td>
-                                                    <td th:text="${produit.dateCreation}"></td>
                                                     <td th:text="${produit.prix}"></td>
+                                                    <td th:text="${produit.qteStock}"></td>
+                                                    <td th:text="${produit.qteSeuil}"></td>
+                                                    <td th:text="${produit.dateCreation}"></td>
                                                 </tr>
 
 

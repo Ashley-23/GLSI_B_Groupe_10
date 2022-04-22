@@ -86,7 +86,12 @@ public class ProduitController {
         produitService.deleteProduit(id);
         return "redirect:/produit/afficher";
     }
-    
+
+    public String RechercheLibelle(@ModelAttribute("libelle") String libelle,Model model){
+        model.addAttribute("all_produit",produitService.rechercheLibelle(libelle));
+        return "";
+    }
+
     /*
     @GetMapping("edit/{id}")
     public String FormEdit(@PathVariable("id") int id , Model model){

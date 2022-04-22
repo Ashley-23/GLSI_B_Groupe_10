@@ -72,22 +72,21 @@
                                             <p class="card-category">Liste des produits</p>
                                           
                                                 <div class="row gutters-8">
-                                                    
-                                                    <form th:action="@{/produit/libelle}" method="post">
-                                                        <div class="col-4-xxxl col-xl-3 col-lg-3 col-12 form-group">
+                                                    <form th:action="@{r}" method="post">
+                                                        <div class="col-3-xxxl col-xl-3 col-lg-3 col-12 form-group">
                                                             <input type="text" placeholder="Rechercher par produits ..." class="form-control" name="libelle">
                                                             <button type="submit" class="fw-btn-fill btn-gradient-yellow">Rechercher</button>
                                                         </div>
                                                     </form>
 
-                                                    <form th:action="@{/produit/dateCreation}" method="post"></form>
+                                                    <form th:action="@{}" method="post"></form>
                                                         <div class="col-4-xxxl col-xl-4 col-lg-3 col-12 form-group">
-                                                            <input type="date" placeholder="Rechercher par date de création ...."  class="form-control" name="dateCreation">
+                                                            <input type="text" placeholder="Rechercher par date de création ...." class="form-control" name="dateCreation">
                                                             <button type="submit" class="fw-btn-fill btn-gradient-yellow">Rechercher</button>
                                                         </div>
                                                     </form>
 
-                                                     <form th:action="@{/produit/prix}" method="post">
+                                                     <form th:action="@{}" method="post">
                                                         <div class="col-4-xxxl col-xl-3 col-lg-3 col-12 form-group">
                                                             <input type="text" placeholder="Rechercher par prix .." class="form-control" name="prix">
                                                             <button type="submit" class="fw-btn-fill btn-gradient-yellow">Rechercher</button>

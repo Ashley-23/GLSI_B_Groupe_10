@@ -45,4 +45,8 @@ public class ProduitService {
         }
         throw new RuntimeException("L'identifiant ne correspond à aucun produit");
     }
+
+    public List<Produit> rechercheLibelle(String libelle){return produitRepository.rechercheLibelle(libelle);}
+    public List<Produit> recherchePrix(String prix){return produitRepository.rechercheLibelle(prix);}
+    public List<Produit> recherchedateCreation(String dateCreation){return produitRepository.rechercheLibelle(dateCreation);}
 }

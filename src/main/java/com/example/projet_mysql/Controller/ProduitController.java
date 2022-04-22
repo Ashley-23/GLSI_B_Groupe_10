@@ -2,6 +2,7 @@ package com.example.projet_mysql.Controller;
 
 
 import com.example.projet_mysql.Model.Categorie;
+import com.example.projet_mysql.Model.Counter;
 import com.example.projet_mysql.Model.Produit;
 import com.example.projet_mysql.Service.CategorieService;
 import com.example.projet_mysql.Service.ProduitService;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -27,7 +29,8 @@ public class ProduitController {
     @GetMapping("/afficher")
     public String afficheallproduit(Model model){
         model.addAttribute("all_produit",produitService.allProduit());
-        System.out.println(produitService.allProduit());
+        model.addAttribute("i", new Counter());
+       // System.out.println(produitService.allProduit());
         return "produit/all";
     }
 
@@ -40,38 +43,65 @@ public class ProduitController {
         return "produit/add";
     }
 
-@PostMapping("/enregistrer")
+    @PostMapping("/enregistrer")
     public String saveProduit(Produit produit,@ModelAttribute("categorie") Categorie categorie)
     {
         produit.setCategorie(categorie);
-        System.out.println(produit);
+        // System.out.println(produit);
         produit.setDateCreation(LocalDate.now());
         produit.setQteStock(0);
         produitService.saveProduit(produit);
         return  "redirect:/produit/afficher";
+    }   
+// afficher un produit 
+    @GetMapping("/{id}/afficherProduit")
+    public String afficherUnProduit(@PathVariable("id") int id, Model model)
+    {
+        model.addAttribute("one_produit", produitService.oneproduit(id));
+        return "/produit/show";
     }
 
-    /*
-    @GetMapping("/a")
-    public String afficherUnProduit(Model model)
-    {
-        //model.addAttribute("listCategories",categorieService.showCategories());
-        model.addAttribute("all_categorie",categorieService.allCategorie());
-        return "produit/add";
+    
+//modifier
+    @GetMapping("/{id}/modifier")
+    public String modifieProduit(@PathVariable("id") int id, Model model){
+        model.addAttribute("one_produit",produitService.oneproduit(id));
+        model.addAttribute("all_categorie", categorieService.allCategorie());
+        return "/produit/edit";
     }
 
-*/
-   /*
-    @PostMapping("/save")
-    public String saveProduit(Produit produit)
+    //update
+   
+    @PostMapping("/update")
+    public String updateProduit(@ModelAttribute("produit") Produit produit)
     {
-
-        produit.setDateCreation(LocalDate.now());
-        produit.setQtStock(0);
+       // produit.setCategorie(categorie);
         produitService.saveProduit(produit);
+        return "redirect:/produit/afficher";
+    }
+
+    @GetMapping("/{id}/supprimer")
+    public String deleteProduit(@PathVariable("id") int id)
+    {
+        produitService.deleteProduit(id);
+        return "redirect:/produit/afficher";
+    }
+    
+    /*
+    @GetMapping("edit/{id}")
+    public String FormEdit(@PathVariable("id") int id , Model model){
+        model.addAttribute("UnProduit", produitService.showOneProduit(id));
+        model.addAttribute("UneCategorie", categorieService.showCategories());
+        return "/produits/formEdit";
+    }
+
+    @PostMapping("/edit")
+    public String editProduit(@ModelAttribute("produit") Produit produit){
+        produitService.saveProduit((produit)
         return "redirect:/produits/afficher";
     }
     */
+    
     
 }
 

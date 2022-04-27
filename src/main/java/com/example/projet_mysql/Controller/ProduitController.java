@@ -28,14 +28,15 @@ public class ProduitController {
 
 
     @GetMapping("/afficher")
-        public String afficheallproduit(Model model, @Param("n") String libelle){
-            model.addAttribute("all_produit",produitService.allProduit());
-            model.addAttribute("all_categorie",categorieService.showAllCategorie());
-            model.addAttribute("i", new Counter());
-            // model.addAttribute("libelle", libelle);
-            //
-            System.out.println(produitService.allProduit());
-            System.out.println(categorieService.showAllCategorie());
+
+    public String afficheallproduit(Model model, @Param("n") String libelle){
+        model.addAttribute("all_produit",produitService.allProduit());
+        //model.addAttribute("all_categorie",categorieService.showAllCategorie());
+        model.addAttribute("i", new Counter());
+        // model.addAttribute("libelle", libelle);
+        //
+        //System.out.println(produitService.allProduit());
+        //System.out.println(categorieService.showAllCategorie());
 
             return "produit/all";
         }

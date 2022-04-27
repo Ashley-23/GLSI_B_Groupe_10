@@ -127,14 +127,15 @@
 
                                                 <tbody th:with="ar = ${i.get()}">
 
-                                                <tr th:each="produit : ${all_produit}" th:with="ar=${i.incrementAndGet()}">
-                                                    <td th:text="${ar}" ></td>
-                                                    <td th:text="${produit.libelle}"></td>
-                                                    <td th:text="${produit.prix}"></td>
-                                                    <td th:text="${produit.qteStock}"></td>
-                                                    <td th:text="${produit.qteSeuil}"></td>
-                                                    <td th:text="${produit.dateCreation}"></td>
-                                                    <td th:text="${produit.getCategorie().designation}" ></td>
+                                                    <tr th:each="produit : ${all_produit}" th:with="ar=${i.incrementAndGet()}">
+                                                        <td th:text="${ar}" ></td>
+                                                        <td th:text="${produit.libelle}"></td>
+                                                        <td th:text="${produit.prix}"></td>
+                                                        <td th:text="${produit.qteStock}"></td>
+                                                        <td th:text="${produit.qteSeuil}"></td>
+                                                        <td th:text="${produit.dateCreation}"></td>
+                                                        <td th:text="${produit.getCategorie().getDesignation()}">
+
 
 
 

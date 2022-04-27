@@ -45,7 +45,7 @@ public class ProduitController {
     public String renseigner(Model model)
     {
         //model.addAttribute("listCategories",categorieService.showCategories());
-        model.addAttribute("all_categorie",categorieService.allCategorie());
+        model.addAttribute("all_categorie",categorieService.showAllCategorie());
         return "produit/add";
     }
 
@@ -72,7 +72,7 @@ public class ProduitController {
     @GetMapping("/{id}/modifier")
     public String modifieProduit(@PathVariable("id") int id, Model model){
         model.addAttribute("one_produit",produitService.oneproduit(id));
-        model.addAttribute("all_categorie", categorieService.allCategorie());
+        model.addAttribute("all_categorie", categorieService.showAllCategorie());
         return "/produit/edit";
     }
 

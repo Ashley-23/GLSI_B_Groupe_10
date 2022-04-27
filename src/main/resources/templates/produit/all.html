@@ -17,7 +17,7 @@
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link th:href="@{/css/demo.css}" rel="stylesheet" />
 
-      <!--- INTEGRATION LIENS DE AKKHOR-->
+    <!--- INTEGRATION LIENS DE AKKHOR-->
 
     <link rel="shortcut icon" type="image/x-icon" href="@{/img/favicon.png}">
     <!-- Normalize CSS -->
@@ -70,96 +70,96 @@
                                         <div class="card-header ">
                                             <h4 class="card-title">Produits</h4>
                                             <p class="card-category">Liste des produits</p>
-                                          
-                                                <div class="row gutters-8">
-                                                    
-                                                    <form th:action="@{/produit/libelle}" method="post">
-                                                        <div class="col-4-xxxl col-xl-4 col-lg-3 col-12 form-group">
-                                                            <input type="text" placeholder="Rechercher par produits ..." class="form-control" name="libelle">
-                                                            <button type="submit" class="fw-btn-fill btn-gradient-yellow">Rechercher</button>
-                                                        </div>
-                                                    </form>
 
-                                                    <form th:action="@{/produit/dateCreation}" method="post"></form>
-                                                        <div class="col-4-xxxl col-xl-4 col-lg-3 col-12 form-group">
-                                                            <input type="date" placeholder="Rechercher par date de création ...."  class="form-control" name="dateCreation">
-                                                            <button type="submit" class="fw-btn-fill btn-gradient-yellow">Rechercher</button>
-                                                        </div>
-                                                    </form>
+                                            <div class="row gutters-8">
 
-                                                     <form th:action="@{/produit/prix}" method="post">
-                                                        <div class="col-4-xxxl col-xl-4 col-lg-3 col-12 form-group">
-                                                            <input type="text" placeholder="Rechercher par prix .." class="form-control" name="prix">
-                                                            <button type="submit" class="fw-btn-fill btn-gradient-yellow">Rechercher</button>
-                                                        </div>
-                                                    </form>
-                                                        
-                                                
-                                                   <!-- <div class="col-1-xxxl col-xl-2 col-lg-3 col-12 form-group">
-                                                        <button type="submit" class="fw-btn-fill btn-gradient-yellow">SEARCH</button>
-                                                    </div> -->
-                                                    <div class="col-12 form-group mg-t-8">
-
-                                                     <a th:href="@{/produit/renseigner}">   <button type="submit" class="btn btn-info btn-fill "> Ajouter un nouveau produit </button> </a>
-                                                        
+                                                <form th:action="@{/produit/libelle}" method="post">
+                                                    <div class="col-4-xxxl col-xl-4 col-lg-3 col-12 form-group">
+                                                        <input type="text" placeholder="Rechercher par produits ..." class="form-control" name="libelle">
+                                                        <button type="submit" class="fw-btn-fill btn-gradient-yellow">Rechercher</button>
                                                     </div>
+                                                </form>
 
-                                                
+                                                <form th:action="@{/produit/dateCreation}" method="post"></form>
+                                                <div class="col-4-xxxl col-xl-4 col-lg-3 col-12 form-group">
+                                                    <input type="date" placeholder="Rechercher par date de création ...."  class="form-control" name="dateCreation">
+                                                    <button type="submit" class="fw-btn-fill btn-gradient-yellow">Rechercher</button>
+                                                </div>
+                                                </form>
 
+                                                <form th:action="@{/produit/prix}" method="post">
+                                                    <div class="col-4-xxxl col-xl-4 col-lg-3 col-12 form-group">
+                                                        <input type="text" placeholder="Rechercher par prix .." class="form-control" name="prix">
+                                                        <button type="submit" class="fw-btn-fill btn-gradient-yellow">Rechercher</button>
+                                                    </div>
+                                                </form>
+
+
+                                                <!-- <div class="col-1-xxxl col-xl-2 col-lg-3 col-12 form-group">
+                                                     <button type="submit" class="fw-btn-fill btn-gradient-yellow">SEARCH</button>
+                                                 </div> -->
+                                                <div class="col-12 form-group mg-t-8">
+
+                                                    <a th:href="@{/produit/renseigner}">   <button type="submit" class="btn btn-info btn-fill "> Ajouter un nouveau produit </button> </a>
 
                                                 </div>
-                                                
-                                                                           
+
+
+
+
+                                            </div>
+
+
                                         </div>
 
                                         <div class="card-body table-full-width table-responsive">
                                             <table class="table table-hover table-striped">
                                                 <thead>
-                                                    <th>N°</th>
-                                                    <th>Libelle</th>
-                                                    <th>Prix</th>
-                                                    <th>Quantité en Stock</th>
-                                                    <th>Quantité seuil</th>
-                                                    <th>Date de création</th>
-                                                    <th>Catégorie</th>
-                                                    <th>   </th>
+                                                <th>N°</th>
+                                                <th>Libelle</th>
+                                                <th>Prix</th>
+                                                <th>Quantité en Stock</th>
+                                                <th>Quantité seuil</th>
+                                                <th>Date de création</th>
+                                                <th>Catégorie</th>
+                                                <th>   </th>
                                                 </thead>
-                                               
+
                                                 <tbody th:with="ar = ${i.get()}">
 
-                                                    <tr th:each="produit : ${all_produit}" th:with="ar=${i.incrementAndGet()}">
-                                                        <td th:text="${ar}" ></td>
-                                                        <td th:text="${produit.libelle}"></td>
-                                                        <td th:text="${produit.prix}"></td>
-                                                        <td th:text="${produit.qteStock}"></td>
-                                                        <td th:text="${produit.qteSeuil}"></td>
-                                                        <td th:text="${produit.dateCreation}"></td>
-                                                        <td th:text="${produit.getCategorie().designation}" ></td>  
+                                                <tr th:each="produit : ${all_produit}" th:with="ar=${i.incrementAndGet()}">
+                                                    <td th:text="${ar}" ></td>
+                                                    <td th:text="${produit.libelle}"></td>
+                                                    <td th:text="${produit.prix}"></td>
+                                                    <td th:text="${produit.qteStock}"></td>
+                                                    <td th:text="${produit.qteSeuil}"></td>
+                                                    <td th:text="${produit.dateCreation}"></td>
+                                                    <td th:text="${produit.getCategorie().designation}" ></td>
 
-                                                        
-                                                        <td>
-                                                            <div class="dropdown">
-                                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"
-                                                                    aria-expanded="false">
-                                                                    <span class="flaticon-more-button-of-three-dots"></span>
-                                                                </a>
-                                                                <div class="dropdown-menu dropdown-menu-right">
-                                                                    <a class="dropdown-item" th:href="@{/produit/{id}/afficherProduit(id=${produit.id})}"><i
-                                                                            class="fas fa-cogs text-dark-pastel-green"></i>Afficher</a>
-                                                                    <a class="dropdown-item"  th:href="@{/produit/{id}/modifier(id=${produit.id})}" ><i
+
+                                                    <td>
+                                                        <div class="dropdown">
+                                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                                                               aria-expanded="false">
+                                                                <span class="flaticon-more-button-of-three-dots"></span>
+                                                            </a>
+                                                            <div class="dropdown-menu dropdown-menu-right">
+                                                                <a class="dropdown-item" th:href="@{/produit/{id}/afficherProduit(id=${produit.id})}"><i
+                                                                        class="fas fa-cogs text-dark-pastel-green"></i>Afficher</a>
+                                                                <a class="dropdown-item"  th:href="@{/produit/{id}/modifier(id=${produit.id})}" ><i
                                                                         class="fas fa-times text-orange-red"></i>Modifier</a>
-                                                                    <a class="dropdown-item"th:href="@{/produit/{id}/supprimer(id=${produit.id})}" ><i
-                                                                            class="fas fa-redo-alt text-orange-peel"></i>Supprimer</a>
+                                                                <a class="dropdown-item"th:href="@{/produit/{id}/supprimer(id=${produit.id})}" ><i
+                                                                        class="fas fa-redo-alt text-orange-peel"></i>Supprimer</a>
 
 
 
 
-                                                                </div>
                                                             </div>
-                                                        </td>
+                                                        </div>
+                                                    </td>
 
-                                                        
-                                                    </tr>
+
+                                                </tr>
 
                                                 </tbody>
                                             </table>
@@ -220,22 +220,22 @@
 <!--AKKHOR LIEN D'INTEGRATION-->
 
 
-    <!-- jquery-->
-    <script th:src="@{/js/jquery-3.3.1.min.js}"></script>
-    <!-- Plugins js -->
-    <script th:src="@{/js/plugins.js}"></script>
-    <!-- Popper js -->
-    <script th:src="@{/js/popper.min.js}"></script>
-    <!-- Bootstrap js -->
-    <script th:src="@{/js/bootstrap.min.js}"></script>
-    <!-- Select 2 Js -->
-    <script th:src="@{/js/select2.min.js}"></script>
-    <!-- Date Picker Js -->
-    <script th:src="@{/js/datepicker.min.js}"></script>
-    <!-- Scroll Up Js -->
-    <script th:src="@{js/jquery.scrollUp.min.js}"></script>
-    <!-- Custom Js -->
-    <script th:src="@{js/main.js}"></script>
+<!-- jquery-->
+<script th:src="@{/js/jquery-3.3.1.min.js}"></script>
+<!-- Plugins js -->
+<script th:src="@{/js/plugins.js}"></script>
+<!-- Popper js -->
+<script th:src="@{/js/popper.min.js}"></script>
+<!-- Bootstrap js -->
+<script th:src="@{/js/bootstrap.min.js}"></script>
+<!-- Select 2 Js -->
+<script th:src="@{/js/select2.min.js}"></script>
+<!-- Date Picker Js -->
+<script th:src="@{/js/datepicker.min.js}"></script>
+<!-- Scroll Up Js -->
+<script th:src="@{js/jquery.scrollUp.min.js}"></script>
+<!-- Custom Js -->
+<script th:src="@{js/main.js}"></script>
 
 
 </html>

@@ -5,18 +5,23 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "categorie")
 public class Categorie {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    @Column(name = "categorie_id")
+    private int categorieId;
+
+
+    @Column(name = "designation", nullable = false)
     private String designation;
 
-//    @OneToMany
-  //  private Produit produit;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "categorie")
+    private Set<Produit> produits;
 }

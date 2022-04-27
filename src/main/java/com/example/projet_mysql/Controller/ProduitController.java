@@ -7,6 +7,7 @@ import com.example.projet_mysql.Model.Produit;
 import com.example.projet_mysql.Service.CategorieService;
 import com.example.projet_mysql.Service.ProduitService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,20 +28,15 @@ public class ProduitController {
 
 
     @GetMapping("/afficher")
-    public String afficheallproduit(Model model){
+    public String afficheallproduit(Model model, @Param("n") String libelle){
         model.addAttribute("all_produit",produitService.allProduit());
-<<<<<<< Updated upstream
+        //model.addAttribute("all_categorie",categorieService.showAllCategorie());
         model.addAttribute("i", new Counter());
-       // System.out.println(produitService.allProduit());
-=======
-        model.addAttribute("all_categorie",categorieService.showAllCategorie());
-        model.addAttribute("i", new Counter());
-       // model.addAttribute("libelle", libelle);
-        //     
-        System.out.println(produitService.allProduit());
-        System.out.println(categorieService.showAllCategorie());
+        // model.addAttribute("libelle", libelle);
+        //
+        //System.out.println(produitService.allProduit());
+        //System.out.println(categorieService.showAllCategorie());
 
-//>>>>>>> Stashed changes
         return "produit/all";
     }
 

@@ -11,31 +11,30 @@ import java.util.Optional;
 @Service
 public class CategorieService {
     @Autowired
-    CategorieRepository categorieRepository;
-
+  private CategorieRepository categorieRepository;
     //Pour l'ajout et la modification des catégories
     public void saveCategorie(Categorie categorie){
         categorieRepository.save(categorie);
     }
 
     //Pour la suppression des catégories
-    public void deleteCategorie(Categorie categorie) {
-        Optional<Categorie> categorieOptional = categorieRepository.findById(categorie.getId());
+    public void deleteCategorie(int id) {
+        Optional<Categorie> categorieOptional = categorieRepository.findById(id);
         if (categorieOptional.isPresent()){
-            categorieRepository.delete(categorie);
+            categorieRepository.deleteById(categorieOptional.get().getCategorieId());
         }
-        throw new RuntimeException("La catégorie à supprimer est introuvable");
+       else throw new RuntimeException("La catégorie à supprimer est introuvable");
     }
 
     //Pour afficher la liste de toutes les catégories
 
-    public List<Categorie> allCategorie(){
+    public List<Categorie> showAllCategorie(){
          return categorieRepository.findAll();
     }
 
     //Pour afficher une catégorie en particulier
 
-    public Categorie oneCategorie(int id)
+    public Categorie showCategorie(int id)
     {
         Optional<Categorie> optionalCategorie = categorieRepository.findById(id);
         if (optionalCategorie.isPresent()){

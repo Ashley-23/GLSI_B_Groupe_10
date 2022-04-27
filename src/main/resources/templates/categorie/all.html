@@ -68,31 +68,20 @@
                                 <div class="col-md-12">
                                     <div class="card strpied-tabled-with-hover">
                                         <div class="card-header ">
-                                            <h4 class="card-title">Produits</h4>
-                                            <p class="card-category">Liste des produits</p>
+                                            <h4 class="card-title">Catégories</h4>
+                                            <p class="card-category">Liste des categories</p>
                                           
                                                 <div class="row gutters-8">
                                                     
-                                                    <form th:action="@{/produit/libelle}" method="post">
+                                                    <form th:action="@{/produit/designation}" method="post">
                                                         <div class="col-4-xxxl col-xl-3 col-lg-3 col-12 form-group">
-                                                            <input type="text" placeholder="Rechercher par produits ..." class="form-control" name="libelle">
+                                                            <input type="text" placeholder="Rechercher par categorie ..." class="form-control" name="designation">
                                                             <button type="submit" class="fw-btn-fill btn-gradient-yellow">Rechercher</button>
                                                         </div>
                                                     </form>
 
-                                                    <form th:action="@{/produit/dateCreation}" method="post"></form>
-                                                        <div class="col-4-xxxl col-xl-4 col-lg-3 col-12 form-group">
-                                                            <input type="date" placeholder="Rechercher par date de création ...."  class="form-control" name="dateCreation">
-                                                            <button type="submit" class="fw-btn-fill btn-gradient-yellow">Rechercher</button>
-                                                        </div>
-                                                    </form>
 
-                                                     <form th:action="@{/produit/prix}" method="post">
-                                                        <div class="col-4-xxxl col-xl-3 col-lg-3 col-12 form-group">
-                                                            <input type="text" placeholder="Rechercher par prix .." class="form-control" name="prix">
-                                                            <button type="submit" class="fw-btn-fill btn-gradient-yellow">Rechercher</button>
-                                                        </div>
-                                                    </form>
+
                                                         
                                                 
                                                    <!-- <div class="col-1-xxxl col-xl-2 col-lg-3 col-12 form-group">
@@ -100,7 +89,7 @@
                                                     </div> -->
                                                     <div class="col-12 form-group mg-t-8">
 
-                                                     <a th:href="@{/produit/renseigner}">   <button type="submit" class="btn btn-info btn-fill "> Ajouter un nouveau produit </button> </a>
+                                                     <a th:href="@{/categorie/create}">   <button type="submit" class="btn btn-info btn-fill "> Ajouter une nouvelle catégorie </button> </a>
                                                         
                                                     </div>
 
@@ -116,39 +105,30 @@
                                             <table class="table table-hover table-striped">
                                                 <thead>
                                                     <th>N°</th>
-                                                    <th>Libelle</th>
-                                                    <th>Prix</th>
-                                                    <th>Quantité en Stock</th>
-                                                    <th>Quantité seuil</th>
-                                                    <th>Date de création</th>
-                                                    <th>Catégorie </th>
-                                                    <th>  </th>
+                                                    <th>désignation</th>
                                                 </thead>
                                                
                                                 <tbody th:with="ar = ${i.get()}">
 
-                                                    <tr th:each="produit : ${all_produit}" th:with="ar=${i.incrementAndGet()}">
+                                                    <tr th:each="categorie : ${Categories}" th:with="ar=${i.incrementAndGet()}">
                                                         <td th:text="${ar}" ></td>
-                                                        <td th:text="${produit.libelle}"></td>
-                                                        <td th:text="${produit.prix}"></td>
-                                                        <td th:text="${produit.qteStock}"></td>
-                                                        <td th:text="${produit.qteSeuil}"></td>
-                                                        <td th:text="${produit.dateCreation}"></td>
-                                                        <td th:text="${produit.getCategorie().getDesignation()}">
+                                                        <td th:text="${categorie.designation}"></td>
 
-
+                                                        
+                                                        
                                                         <td>
                                                             <div class="dropdown">
                                                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"
                                                                     aria-expanded="false">
                                                                     <span class="flaticon-more-button-of-three-dots"></span>
                                                                 </a>
+
                                                                 <div class="dropdown-menu dropdown-menu-right">
-                                                                    <a class="dropdown-item" th:href="@{/produit/{id}/afficherProduit(id=${produit.id})}"><i
+                                                                    <a class="dropdown-item" th:href="@{/categorie/{id}/afficherCategorie(id=${categorie.categorieId})}"><i
                                                                             class="fas fa-cogs text-dark-pastel-green"></i>Afficher</a>
-                                                                    <a class="dropdown-item"  th:href="@{/produit/{id}/modifier(id=${produit.id})}" ><i
-                                                                        class="fas fa-times text-orange-red"></i>Modifier</a>
-                                                                    <a class="dropdown-item"th:href="@{/produit/{id}/supprimer(id=${produit.id})}" ><i
+                                                                    <a class="dropdown-item"  th:href="@{/categorie/{id}/edit(id=${categorie.categorieId})}" ><i
+                                                                            class="fas fa-times text-orange-red"></i>Modifier</a>
+                                                                    <a class="dropdown-item"th:href="@{/categorie/{id}/delete(id=${categorie.categorieId})}" ><i
                                                                             class="fas fa-redo-alt text-orange-peel"></i>Supprimer</a>
 
 

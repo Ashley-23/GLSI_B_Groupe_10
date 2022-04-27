@@ -1,6 +1,5 @@
 package com.example.projet_mysql.Controller;
 
-import com.example.projet_mysql.Repository.CategorieRepository;
 import com.example.projet_mysql.Service.CategorieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

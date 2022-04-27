@@ -23,6 +23,6 @@ public class Produit {
     private LocalDate dateCreation;
 
     @ManyToOne
-    @JoinColumn(name = "categorie_id")  //à completer
+    @JoinColumn(name = "categorie_id",nullable = false)  //à completer
     private Categorie categorie;
 }

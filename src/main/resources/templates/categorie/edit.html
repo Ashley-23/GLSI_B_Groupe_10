@@ -69,7 +69,7 @@
                                 <div class="card-body">
                                     <div class="heading-layout1">
                                         <div class="item-title">
-                                            <h3>Modifier un produit</h3>
+                                            <h3>Modifier une catégorie</h3>
 
 
                                         </div>
@@ -78,73 +78,24 @@
 
 
                             </div>
-                            <form th:action="@{/produit/update}" method="post" th:object="${one_produit}" class="new-added-form">
+                            <form th:action="@{/categorie/edit}" method="post" th:object="${unCategorie}" class="new-added-form">
                                 <div class="row">
 
                                    
-                                        <input type="hidden" name="id" th:field="${one_produit.id} "
+                                        <input type="hidden" name="id" th:field="${unCategorie.categorieId} "
                                             class="form-control" required>
                                    
                                     <div class="col-xl-3 col-lg-6 col-12 form-group">
                                         <label> Libelle du produit </label>
-                                        <input type="text" name="libelle" th:field="${one_produit.libelle}"
-                                            class="form-control" required>
-                                    </div>
-                                    <div class="col-xl-3 col-lg-6 col-12 form-group">
-                                        <label>Prix du produit</label>
-                                        <input type="number" min="0" name="prix" th:field="${one_produit.prix}"
+                                        <input type="text" name="libelle" th:field="${unCategorie.designation}"
                                             class="form-control" required>
                                     </div>
 
-                                    <input type="hidden" name="dateCreation" th:field="${one_produit.dateCreation}"
-                                    class="form-control" required>
 
 
-                                    <input type="hidden" name="dateCreation" th:field="${one_produit.qteSeuil}"
-                                           class="form-control" required>
 
 
-                                    <div class="col-xl-3 col-lg-6 col-12 form-group">
-                                        <label>Quantité en Stock </label>
-                                        <input type="number" min="0" name="qteStock" th:field="${one_produit.qteStock}"
-                                            class="form-control" required>
-                                    </div>
-                                    <!--
-                                <div class="col-xl-3 col-lg-6 col-12 form-group">
-                                    <label>Quantité en stock</label>
-                                    <input type="number" th:placeholder="${one_produit.libelle}" class="form-control">
-                                </div>
-                            -->
-                                    <div class="col-xl-3 col-lg-6 col-12 form-group">
-                                        <label>Catégorie du produit</label>
-                                        <select class="form-control" name="categorie" required>
-                                            <option selected disabled> Selectionner une catégorie de produit </option>
-                                            <option th:each="categorie:${all_categorie}" th:value="${categorie.categorieId}"
-                                                th:text="${categorie.designation}"
-                                                th:selected="${categorie.categorieId == one_produit.getCategorie().getCategorieId()}">
 
-                                            </option>
-                                        </select>
-                                    </div>
-
-
-                                    <!--
-
-                                        th:selected="${i==75}"
-
-
-                            <div class="mb-3">
-                              <label class="form-label">Categorie </label>
-                              <select name="categorieId" required >
-                                  <option value="" > Selectionner une catégorie</option>
-                                  <option value="1">Islam</option>
-                                  <option value="2">Hindu</option>
-                                  <option value="3">Christian</option>
-                                  <option value="3">Buddish</option>
-                                  <option value="3">Others</option>
-                              </select>
-                          </div>
--->
 
 
 
@@ -157,12 +108,12 @@
 
 
                                 </div>
-                        </div>
+
                         </form>
 
                         <div class="col-12 form-group mg-t-8">
-                            <a th:href="@{/produit/afficher}"> <button type="submit" class="btn btn-info btn-fill ">
-                                    Afficher la liste des produits </button> </a>
+                            <a th:href="@{/categorie/afficher}"> <button type="submit" class="btn btn-info btn-fill ">
+                                    Afficher la liste des catégories </button> </a>
                         </div>
 
 

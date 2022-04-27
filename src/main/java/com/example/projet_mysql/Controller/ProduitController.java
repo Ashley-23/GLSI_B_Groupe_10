@@ -29,8 +29,18 @@ public class ProduitController {
     @GetMapping("/afficher")
     public String afficheallproduit(Model model){
         model.addAttribute("all_produit",produitService.allProduit());
+<<<<<<< Updated upstream
         model.addAttribute("i", new Counter());
        // System.out.println(produitService.allProduit());
+=======
+        model.addAttribute("all_categorie",categorieService.showAllCategorie());
+        model.addAttribute("i", new Counter());
+       // model.addAttribute("libelle", libelle);
+        //     
+        System.out.println(produitService.allProduit());
+        System.out.println(categorieService.showAllCategorie());
+
+//>>>>>>> Stashed changes
         return "produit/all";
     }
 

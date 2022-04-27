@@ -28,7 +28,6 @@ public class ProduitController {
 
 
     @GetMapping("/afficher")
-
     public String afficheallproduit(Model model, @Param("n") String libelle){
         model.addAttribute("all_produit",produitService.allProduit());
         //model.addAttribute("all_categorie",categorieService.showAllCategorie());
